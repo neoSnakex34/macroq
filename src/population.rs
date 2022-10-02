@@ -5,7 +5,7 @@ use crate::member::Member;
 
 pub struct Population{
     
-    population_vec: Vec<Member>
+    pub population_vec: Vec<Member>
 
 }
 
@@ -27,13 +27,11 @@ impl Population {
         self.population_vec.drain(step..);
     }
 
-    pub fn members(&self) -> &Vec<Member>{
-        &self.population_vec
-    }
-
-    // pub fn mutable_members(self) -> &mut Vec<Member>{
-    //     &mut self.population_vec
+    // pub fn members(&self) -> &Vec<Member>{
+    //     &self.population_vec
     // }
+
+  
 
     //sort members 
 

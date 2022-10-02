@@ -4,6 +4,7 @@ use rand::Rng;
 pub struct Member{
 
     // starting_coordinates: (f32, f32),
+    pub position: (f32, f32),
     moveset: Vec<Move>
 
 }
@@ -25,16 +26,11 @@ impl  Member {
             moveset:   
                 (0..size)
                     .map(|_| {
-                        let n = rng.gen_range(0..=3);
-                        match n{
-                            0 => Move::Right,
-                            1 => Move::Left,
-                            2 => Move::Up,
-                            3 => Move::Down,
-                            _ => unreachable!()
-                        }
+                        Self::select_random_move(rng)
                     })
-                    .collect()
+                    .collect(),
+
+            position: (100.0, 350.0)
         }
     }
 
@@ -68,6 +64,22 @@ impl  Member {
                     
                 }
             });
+    }
+
+    pub fn update_position(&mut self, i: usize){
+
+        match self.moveset[i]{
+
+            Move::Up => self.position.1 -= 1.0, 
+            Move::Down => self.position.1 += 1.0, 
+            Move::Right => self.position.0 += 1.0, 
+            Move::Left => self.position.0 -= 1.0, 
+
+        }
+    }
+
+    pub fn reset_position(&mut self){
+        self.position = (100.0, 350.0)
     }
 
 }
