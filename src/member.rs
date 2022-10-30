@@ -5,7 +5,8 @@ pub struct Member{
 
     // starting_coordinates: (f32, f32),
     pub position: (f32, f32),
-    moveset: Vec<Move>
+    moveset: Vec<Move>,
+    pub fitness: f32,
 
 }
 
@@ -22,7 +23,7 @@ pub enum Move {
 impl  Member {
     
     pub fn new_random <R: Rng+?Sized>(size: usize, rng: &mut R) -> Self{
-        Self{ 
+        Self { 
             moveset:   
                 (0..size)
                     .map(|_| {
@@ -30,7 +31,8 @@ impl  Member {
                     })
                     .collect(),
 
-            position: (100.0, 350.0)
+            position: (100.0, 350.0),
+            fitness: f32::INFINITY,
         }
     }
 
@@ -76,6 +78,10 @@ impl  Member {
             Move::Left => self.position.0 -= 1.0, 
 
         }
+    }
+
+    pub fn update_fitness(&mut self, target: &Target) {
+        self.fitness = ...
     }
 
     pub fn reset_position(&mut self){

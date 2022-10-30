@@ -23,20 +23,10 @@ impl Population {
         }
     }
 
-    pub fn drain_pop(&mut self, step: usize){
-        self.population_vec.drain(step..);
-    }
-
-    // pub fn members(&self) -> &Vec<Member>{
-    //     &self.population_vec
-    // }
-
-  
-
     //sort members 
 
     pub fn breed<R: Rng+?Sized>(p1: Member, p2: Member, member_size: usize, rng: &mut R) -> Member{
-        let mut child = Member::new_random(member_size, rng);
+        let mut child = Member::new_random(member_size, rng); // TODO: cambia
 
         child
             .moveset_mutable()

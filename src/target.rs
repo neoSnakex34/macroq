@@ -1,5 +1,4 @@
 pub struct Target{
-    radius: f32, 
-    x_coordinate: f32,
-    y_coordinate: f32, 
+    pub radius: f32,
+    pub position: (f32, f32),
 }
