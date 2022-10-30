@@ -42,7 +42,7 @@ impl Population {
     }
 
     pub fn repopulate<R: Rng+?Sized>(&mut self, difference: usize, mem_size: usize,  mutation_rate: f32, rng: &mut R){
-        //fiteness sort 
+
 
         (0..difference)
             .for_each(|_| {

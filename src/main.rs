@@ -8,6 +8,7 @@ use macroq::target::Target;
 const WIDTH: usize = 1000;
 const HEIGHT: usize = 700;
 const SIZE: usize = 100;
+const MEMBER_STEPS: usize = 10000; 
 
 fn window_conf() -> Conf {
     Conf {
@@ -57,14 +58,14 @@ async fn main() {
         // dall'inizio dell'esperimento, quando i raggiunge il massimo
         // di passi che ogni membro può compiere, dobbiamo resettare la
         // posizione dei membri ed analizzare i risultati
-        if i == 1000 {
+        if i == MEMBER_STEPS {
             i = 0;
 
             // aggiorniamo le fitness
-            population
-                .population_vec
-                .iter_mut()
-                .for_each(|member| member.update_fitness(&target));
+            // population
+            //     .population_vec
+            //     .iter_mut()
+                // .for_each(|member| member.update_fitness(&target));
 
             // sortiamo per valori di fitness
             population

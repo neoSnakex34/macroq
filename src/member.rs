@@ -80,8 +80,8 @@ impl  Member {
         }
     }
 
-    pub fn update_fitness(&mut self, target: &Target) {
-        self.fitness = ...
+    pub fn update_fitness(&mut self, target: &Target) -> f32 {
+        self.fitness = cmp()
     }
 
     pub fn reset_position(&mut self){
